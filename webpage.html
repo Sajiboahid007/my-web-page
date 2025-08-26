@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Webiste</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        scroll-behavior: smooth; /* smooth scrolling */
+      }
+      section {
+        height: 100vh; /* full screen height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        color: white;
+      }
+      #about {
+        background-color: #1e293b;
+      }
+      #skills {
+        background-color: #2c2c2c;
+      }
+      #education {
+        background-color: #764ba2;
+      }
+      #contact {
+        background-color: #667eea;
+      }
+
+      .home-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+        background: #0a192f;
+        color: white;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .home-text {
+        flex: 1;
+        min-width: 250px;
+        text-align: center; /* optional: keep text centered */
+      }
+
+      .home-text h1 {
+        font-size: 36px;
+        margin-bottom: 15px;
+      }
+
+      .home-text p {
+        font-size: 18px;
+      }
+
+      .home-photo {
+        flex: 0 0 40%; /* photo takes 40% of section width */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .home-photo img {
+        width: 100%; /* fills the 40% container */
+        aspect-ratio: 1; /* keep it square */
+        border-radius: 50%; /* circle */
+        object-fit: cover; /* maintain photo ratio */
+      }
+
+      /* Responsive: stack vertically on mobile */
+      @media (max-width: 768px) {
+        .home-section {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .home-photo {
+          flex: 0 0 60%; /* smaller on mobile */
+          margin-top: 20px;
+        }
+      }
+
+      .skill-card:hover {
+        transform: translateY(-5px);
+        transition: 0.3s;
+      }
+      .education-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: default;
+      }
+
+      .education-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      }
+      .contact-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Sajib Oahid</a>
+        <div class="collapse navbar-collapse justify-content-center">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#education">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sections -->
+    <section id="home" class="home-section">
+      <!-- Left Side: Text -->
+      <div class="home-text">
+        <h1>Hi, I’m Sajib Oahid</h1>
+        <p>
+          I am a Computer Science student and web developer. I build modern and
+          responsive websites.
+        </p>
+      </div>
+
+      <!-- Right Side: Circle Photo -->
+      <div class="home-photo">
+        <img src="Sajib.jpg" alt="Sajib Oahid" />
+      </div>
+    </section>
+
+    <section
+      id="about"
+      class="py-5 text-white"
+      style="background-color: #1e293b"
+    >
+      <div class="container text-center">
+        <h2 class="mb-3 display-5">About Me</h2>
+        <p class="lead mb-2">
+          Hi! I’m Sajib Oahid, a passionate Computer Science student and
+          aspiring web developer. I enjoy building modern, responsive, and
+          user-friendly websites. I specialize in
+          <strong>HTML, CSS, JavaScript, Node.js, and SQL Server</strong>.
+        </p>
+        <p class="lead">
+          I am detail-oriented, collaborative, and always looking for innovative
+          solutions. My goal is to become a full-stack web developer and
+          contribute to meaningful projects.
+        </p>
+      </div>
+    </section>
+
+    <section
+      id="skills"
+      class="py-5 text-white"
+      style="background-color: #0f172a"
+    >
+      <!-- Dark background -->
+      <div class="container">
+        <h2 class="mb-4 text-center display-5">My Skills</h2>
+
+        <div class="row g-4 justify-content-center">
+          <div class="col-6 col-md-3 text-center">
+            <div
+              class="skill-card p-3 rounded"
+              style="background-color: #1e3a8a"
+            >
+              <h5>Node.js</h5>
+              <p>API, Server, CRUD</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3 text-center">
+            <div
+              class="skill-card p-3 rounded"
+              style="background-color: #1e3a8a"
+            >
+              <h5>JavaScript</h5>
+              <p>Frontend & Backend</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3 text-center">
+            <div
+              class="skill-card p-3 rounded"
+              style="background-color: #1e3a8a"
+            >
+              <h5>Database & Prisma</h5>
+              <p>CRUD Operations</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3 text-center">
+            <div
+              class="skill-card p-3 rounded"
+              style="background-color: #1e3a8a"
+            >
+              <h5>Express.js</h5>
+              <p>Server & API</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3 text-center">
+            <div
+              class="skill-card p-3 rounded"
+              style="background-color: #1e3a8a"
+            >
+              <h5>Postman</h5>
+              <p>API Testing</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3 text-center">
+            <div
+              class="skill-card p-3 rounded"
+              style="background-color: #1e3a8a"
+            >
+              <h5>Git & Projects</h5>
+              <p>GitHub Repositories</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 text-center">
+            <div
+              class="skill-card p-3 rounded"
+              style="background-color: #1e3a8a"
+            >
+              <h5>C / C++ / Java</h5>
+              <p>Basic to Intermediate</p>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3 text-center">
+            <div
+              class="skill-card p-3 rounded"
+              style="background-color: #1e3a8a"
+            >
+              <h5>Assembly</h5>
+              <p>Basic Knowledge</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="education"
+      class="py-5 text-white"
+      style="background-color: #1e293b"
+    >
+      <div class="container">
+        <h2 class="mb-4 text-center fs-3">Education</h2>
+
+        <div class="row g-4 justify-content-center">
+          <!-- University -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div
+              class="p-3 rounded education-card"
+              style="background-color: #0f172a"
+            >
+              <h5 class="fs-5">BSc in Computer Science & Engineering</h5>
+              <p class="fs-6 mb-1">
+                <strong>University:</strong> Gono University
+              </p>
+              <p class="fs-6 mb-1"><strong>Year:</strong> 2022 - Present</p>
+              <p class="fs-6">
+                <strong>Details:</strong> Focus on web development, database
+                management, and programming languages like C, C++, Java, and
+                JavaScript.
+              </p>
+            </div>
+          </div>
+
+          <!-- College -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div
+              class="p-3 rounded education-card"
+              style="background-color: #0f172a"
+            >
+              <h5 class="fs-5">Higher Secondary Certificate (HSC)</h5>
+              <p class="fs-6 mb-1">
+                <strong>College:</strong> Kaliakair College
+              </p>
+              <p class="fs-6 mb-1"><strong>Year:</strong> 2019 - 2021</p>
+              <p class="fs-6">
+                <strong>Details:</strong> Focused on science subjects including
+                mathematics and physics.
+              </p>
+            </div>
+          </div>
+
+          <!-- Secondary School -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div
+              class="p-3 rounded education-card"
+              style="background-color: #0f172a"
+            >
+              <h5 class="fs-5">Secondary School Certificate (SSC)</h5>
+              <p class="fs-6 mb-1">
+                <strong>School:</strong> Asharf Ali High School
+              </p>
+              <p class="fs-6">
+                <strong>Details:</strong> Completed secondary education with
+                focus on science subjects.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="contact"
+      class="py-5 text-white"
+      style="background-color: #0f172a"
+    >
+      <div class="container text-center">
+        <h2 class="mb-4 fs-3">Contact Me</h2>
+        <p class="fs-6 mb-4">
+          Get in touch with me via email or connect on social platforms.
+        </p>
+
+        <div class="row justify-content-center g-3">
+          <!-- Email -->
+          <div class="col-12 col-md-4">
+            <div
+              class="p-3 rounded contact-card d-flex align-items-center justify-content-center"
+              style="background-color: #1e293b"
+            >
+              <i class="bi bi-envelope-fill fs-4 me-2"></i>
+              <a
+                href="mailto:sajiboahid007@gmail.com"
+                class="text-white fs-6 text-decoration-none"
+              >
+                sajiboahid007@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <!-- Facebook -->
+          <div class="col-12 col-md-4">
+            <div
+              class="p-3 rounded contact-card d-flex align-items-center justify-content-center"
+              style="background-color: #1877f2"
+            >
+              <i class="bi bi-facebook fs-4 me-2"></i>
+              <a
+                href="https://www.facebook.com/sajiboahid.007"
+                target="_blank"
+                class="text-white fs-6 text-decoration-none"
+              >
+                sajiboahid.007
+              </a>
+            </div>
+          </div>
+
+          <!-- GitHub -->
+          <div class="col-12 col-md-4">
+            <div
+              class="p-3 rounded contact-card d-flex align-items-center justify-content-center"
+              style="background-color: #333333"
+            >
+              <i class="bi bi-github fs-4 me-2"></i>
+              <a
+                href="https://github.com/"
+                target="_blank"
+                class="text-white fs-6 text-decoration-none"
+              >
+                GitHub Link
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </body>
+</html>
