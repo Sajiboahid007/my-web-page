@@ -3,110 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Personal Webiste</title>
+    <title>Personal Website</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <style>
       html {
-        scroll-behavior: smooth; /* smooth scrolling */
-      }
-      section {
-        height: 100vh; /* full screen height */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 40px;
-        color: white;
-      }
-      #about {
-        background-color: #1e293b;
-      }
-      #skills {
-        background-color: #2c2c2c;
-      }
-      #education {
-        background-color: #764ba2;
-      }
-      #contact {
-        background-color: #667eea;
+        scroll-behavior: smooth;
       }
 
-      .home-section {
+      section {
+        min-height: 100vh; /* flexible height */
+        padding: 80px 20px;
         display: flex;
-        align-items: center;
+        flex-direction: column;
         justify-content: center;
-        padding: 50px;
+        align-items: center;
+      }
+
+      /* Home */
+      #home {
         background: #0a192f;
         color: white;
-        gap: 30px;
-        flex-wrap: wrap;
+        min-height: 100vh; /* full height but flexible */
+        display: flex;
+        align-items: center;
+        padding: 60px 20px;
       }
 
       .home-text {
         flex: 1;
         min-width: 250px;
-        text-align: center; /* optional: keep text centered */
+        text-align: center;
       }
 
       .home-text h1 {
-        font-size: 36px;
+        font-size: clamp(24px, 5vw, 36px);
         margin-bottom: 15px;
       }
 
       .home-text p {
-        font-size: 18px;
+        font-size: clamp(14px, 3vw, 18px);
       }
-
-      .home-photo {
-        flex: 0 0 40%; /* photo takes 40% of section width */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
       .home-photo img {
-        width: 100%; /* fills the 40% container */
-        aspect-ratio: 1; /* keep it square */
+        width: 100%;
+        max-width: 280px; /* keeps a nice size (like your first version) */
+        aspect-ratio: 1; /* keeps square ratio */
         border-radius: 50%; /* circle */
-        object-fit: cover; /* maintain photo ratio */
+        object-fit: cover; /* crop nicely */
+        display: block;
+        margin: 0 auto; /* center on mobile */
       }
 
-      /* Responsive: stack vertically on mobile */
+      /* Skill, education, contact cards */
+      .skill-card:hover,
+      .education-card:hover,
+      .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        transition: 0.3s;
+      }
+
+      /* Responsive */
       @media (max-width: 768px) {
         .home-section {
           flex-direction: column;
           text-align: center;
         }
 
-        .home-photo {
-          flex: 0 0 60%; /* smaller on mobile */
-          margin-top: 20px;
+        section {
+          padding: 80px 15px;
         }
-      }
-
-      .skill-card:hover {
-        transform: translateY(-5px);
-        transition: 0.3s;
-      }
-      .education-card {
-        transition: transform 0.3s, box-shadow 0.3s;
-        cursor: default;
-      }
-
-      .education-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      }
-      .contact-card {
-        transition: transform 0.3s, box-shadow 0.3s;
-        cursor: pointer;
-      }
-
-      .contact-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
       }
     </style>
   </head>
@@ -115,7 +83,19 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">Sajib Oahid</a>
-        <div class="collapse navbar-collapse justify-content-center">
+        <!-- Toggle button for mobile -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+        >
           <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
             <li class="nav-item">
@@ -135,28 +115,36 @@
       </div>
     </nav>
 
-    <!-- Sections -->
+    <!-- Home -->
+    <!-- Home -->
     <section id="home" class="home-section">
-      <!-- Left Side: Text -->
-      <div class="home-text">
-        <h1>Hi, I’m Sajib Oahid</h1>
-        <p>
-          I am a Computer Science student and web developer. I build modern and
-          responsive websites.
-        </p>
-      </div>
+      <div class="container">
+        <div
+          class="row align-items-center justify-content-center text-center text-md-start"
+        >
+          <!-- Text -->
+          <div class="col-12 col-md-6 mb-4 mb-md-0">
+            <h1 class="fw-bold display-5">Hi, I’m Sajib Oahid</h1>
+            <p class="lead">
+              I am a Computer Science student and web developer. I build modern
+              and responsive websites.
+            </p>
+          </div>
 
-      <!-- Right Side: Circle Photo -->
-      <div class="home-photo">
-        <img src="Sajib.jpg" alt="Sajib Oahid" />
+          <!-- Photo -->
+          <div class="col-12 col-md-4 text-center">
+            <img
+              src="Sajib.jpg"
+              alt="Sajib Oahid"
+              class="img-fluid rounded-circle shadow"
+            />
+          </div>
+        </div>
       </div>
     </section>
 
-    <section
-      id="about"
-      class="py-5 text-white"
-      style="background-color: #1e293b"
-    >
+    <!-- About -->
+    <section id="about" style="background-color: #1e293b; color: white">
       <div class="container text-center">
         <h2 class="mb-3 display-5">About Me</h2>
         <p class="lead mb-2">
@@ -173,15 +161,10 @@
       </div>
     </section>
 
-    <section
-      id="skills"
-      class="py-5 text-white"
-      style="background-color: #0f172a"
-    >
-      <!-- Dark background -->
+    <!-- Skills -->
+    <section id="skills" style="background-color: #0f172a; color: white">
       <div class="container">
         <h2 class="mb-4 text-center display-5">My Skills</h2>
-
         <div class="row g-4 justify-content-center">
           <div class="col-6 col-md-3 text-center">
             <div
@@ -192,7 +175,6 @@
               <p>API, Server, CRUD</p>
             </div>
           </div>
-
           <div class="col-6 col-md-3 text-center">
             <div
               class="skill-card p-3 rounded"
@@ -202,7 +184,6 @@
               <p>Frontend & Backend</p>
             </div>
           </div>
-
           <div class="col-6 col-md-3 text-center">
             <div
               class="skill-card p-3 rounded"
@@ -212,7 +193,6 @@
               <p>CRUD Operations</p>
             </div>
           </div>
-
           <div class="col-6 col-md-3 text-center">
             <div
               class="skill-card p-3 rounded"
@@ -222,7 +202,6 @@
               <p>Server & API</p>
             </div>
           </div>
-
           <div class="col-6 col-md-3 text-center">
             <div
               class="skill-card p-3 rounded"
@@ -232,7 +211,6 @@
               <p>API Testing</p>
             </div>
           </div>
-
           <div class="col-6 col-md-3 text-center">
             <div
               class="skill-card p-3 rounded"
@@ -251,7 +229,6 @@
               <p>Basic to Intermediate</p>
             </div>
           </div>
-
           <div class="col-6 col-md-3 text-center">
             <div
               class="skill-card p-3 rounded"
@@ -265,16 +242,11 @@
       </div>
     </section>
 
-    <section
-      id="education"
-      class="py-5 text-white"
-      style="background-color: #1e293b"
-    >
+    <!-- Education -->
+    <section id="education" style="background-color: #1e293b; color: white">
       <div class="container">
         <h2 class="mb-4 text-center fs-3">Education</h2>
-
         <div class="row g-4 justify-content-center">
-          <!-- University -->
           <div class="col-12 col-md-6 col-lg-4">
             <div
               class="p-3 rounded education-card"
@@ -292,8 +264,6 @@
               </p>
             </div>
           </div>
-
-          <!-- College -->
           <div class="col-12 col-md-6 col-lg-4">
             <div
               class="p-3 rounded education-card"
@@ -310,8 +280,6 @@
               </p>
             </div>
           </div>
-
-          <!-- Secondary School -->
           <div class="col-12 col-md-6 col-lg-4">
             <div
               class="p-3 rounded education-card"
@@ -331,17 +299,13 @@
       </div>
     </section>
 
-    <section
-      id="contact"
-      class="py-5 text-white"
-      style="background-color: #0f172a"
-    >
+    <!-- Contact -->
+    <section id="contact" style="background-color: #0f172a; color: white">
       <div class="container text-center">
         <h2 class="mb-4 fs-3">Contact Me</h2>
         <p class="fs-6 mb-4">
           Get in touch with me via email or connect on social platforms.
         </p>
-
         <div class="row justify-content-center g-3">
           <!-- Email -->
           <div class="col-12 col-md-4">
@@ -358,7 +322,6 @@
               </a>
             </div>
           </div>
-
           <!-- Facebook -->
           <div class="col-12 col-md-4">
             <div
@@ -375,7 +338,6 @@
               </a>
             </div>
           </div>
-
           <!-- GitHub -->
           <div class="col-12 col-md-4">
             <div
